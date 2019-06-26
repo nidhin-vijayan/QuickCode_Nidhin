@@ -207,7 +207,7 @@ public class A_Scenario1Page extends TestBase {
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-testid='FlightSearchResult__Itinerary1__SelectFlightButton']")));		
 		rflight.click();
 		
-		//CHECK*******************
+		//CHECK
 	}
 
 }
