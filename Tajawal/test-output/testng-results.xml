@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="97164" started-at="2019-06-26T20:22:10Z" finished-at="2019-06-26T20:23:47Z">
+  <suite name="Tajawal_QA CODE CHALLENGE" duration-ms="361273" started-at="2019-06-26T23:42:15Z" finished-at="2019-06-26T23:48:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="97164" started-at="2019-06-26T20:22:10Z" finished-at="2019-06-26T20:23:47Z">
+    <test name="Tajawal_QA challenge_Validate Scenario 1" duration-ms="192810" started-at="2019-06-26T23:42:15Z" finished-at="2019-06-26T23:45:28Z">
       <class name="com.saal.qa.testcases.A_Scenario1PageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.saal.qa.testcases.A_Scenario1PageTest@4501b7af]" name="setUp" is-config="true" duration-ms="17953" started-at="2019-06-27T00:22:11Z" finished-at="2019-06-27T00:22:28Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.saal.qa.testcases.A_Scenario1PageTest@523884b2]" name="setUp" is-config="true" duration-ms="61590" started-at="2019-06-27T03:42:21Z" finished-at="2019-06-27T03:43:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="validateCreateNewContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.saal.qa.testcases.A_Scenario1PageTest@4501b7af]" name="validateCreateNewContact" duration-ms="78513" started-at="2019-06-27T00:22:28Z" description="Validate Scenario 1" data-provider="getBookingTestData" finished-at="2019-06-27T00:23:47Z">
+        <test-method status="PASS" signature="validateCreateNewContact(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.saal.qa.testcases.A_Scenario1PageTest@523884b2]" name="validateCreateNewContact" duration-ms="125611" started-at="2019-06-27T03:43:22Z" description="Validate Scenario 1" data-provider="getBookingTestData" finished-at="2019-06-27T03:45:28Z">
           <params>
             <param index="0">
               <value>
@@ -38,6 +38,40 @@
           </reporter-output>
         </test-method> <!-- validateCreateNewContact -->
       </class> <!-- com.saal.qa.testcases.A_Scenario1PageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Tajawal_QA challenge_Validate Scenario 1 -->
+    <test name="Tajawal_QA challenge_Validate Scenario 2" duration-ms="149476" started-at="2019-06-26T23:45:47Z" finished-at="2019-06-26T23:48:17Z">
+      <class name="com.saal.qa.testcases.B_Scenario2PageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.saal.qa.testcases.B_Scenario2PageTest@1794d431]" name="setUp" is-config="true" duration-ms="47237" started-at="2019-06-27T03:45:47Z" finished-at="2019-06-27T03:46:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="validateScenarioTwo(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:com.saal.qa.testcases.B_Scenario2PageTest@1794d431]" name="validateScenarioTwo" duration-ms="101836" started-at="2019-06-27T03:46:35Z" description="Validate Scenario 2" data-provider="getBookingTestData" finished-at="2019-06-27T03:48:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[DXB]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[TRV]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[2019-07-01]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateScenarioTwo -->
+      </class> <!-- com.saal.qa.testcases.B_Scenario2PageTest -->
+    </test> <!-- Tajawal_QA challenge_Validate Scenario 2 -->
+  </suite> <!-- Tajawal_QA CODE CHALLENGE -->
 </testng-results>
