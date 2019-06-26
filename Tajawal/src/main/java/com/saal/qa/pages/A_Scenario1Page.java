@@ -78,7 +78,7 @@ public class A_Scenario1Page extends TestBase {
 	@FindBy(linkText = "Show all")
 	WebElement showairlines;   
 
-	@FindBy(xpath = "//div[6]/div[@class='sc-cHSUfg hTKpEP' and 2]//label[contains(@type,'checkbox')]")
+	@FindBy(xpath = "//div[6]/div[@class='sc-sdtwF btTEnt' and 2]/div[2]//label[contains(@type,'checkbox')]")
 	List<WebElement> airlineslist;
 
 	@FindBy(xpath = "//*[text()='EK: Emirates']")
@@ -109,6 +109,10 @@ public class A_Scenario1Page extends TestBase {
 	WebElement scrollcontact;
 	
 	String scrollwait = "//a[@class='poj0qx-2 ciwQeg']";
+	
+	@FindBy(xpath = "//*[@name='travellers.0.lastName']")
+	WebElement t1_lastname;
+	
 
 	// Initializing the Page Objects:
 	public A_Scenario1Page() {
@@ -206,8 +210,9 @@ public class A_Scenario1Page extends TestBase {
 		js.executeScript("scroll(0,-350);");
 //		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-testid='FlightSearchResult__Itinerary1__SelectFlightButton']")));		
 		rflight.click();
-		
-		//CHECK*******************
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		t1_lastname.sendKeys("Nidhin");
+		//CHECK
 	}
 
 }

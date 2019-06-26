@@ -125,9 +125,29 @@ public class B_Scenario2Page extends TestBase {
 		WebElement Pricelist = driver.findElement(By.xpath(price1));
 		System.out.println("The price list is:"+Pricelist.getText());
 		String ex= Pricelist.getText();
-		System.out.println("The value of a:"+ex);
-		String part1 = ex.replaceAll("[^\\d]", "" );
-		System.out.println("The value of a:"+part1);
+		System.out.println("The value of a:" +ex);
+		String finalprice1 = ex.replaceAll("[^\\d]", "" );
+		System.out.println("The value of Pricelist1:"+finalprice1);
+		int tfinalprice1 = Integer.parseInt(finalprice1);	
+		
+		for(int i=1;i<flightlist.size();i++){
+			if(i==3)
+				i++;
+		String price2 = "//div[@data-testid='FlightSearchResult__Itinerary"+i+"__PriceLabel']"; 
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		WebElement Pricelist2 = driver.findElement(By.xpath(price2));
+		System.out.println("The price list is:"+Pricelist2.getText());
+		String exe= Pricelist.getText();
+		System.out.println("The value of Pricelist2:" +ex);
+		String finalprice2 = exe.replaceAll("[^\\d]", "" );
+		System.out.println("The value of a:"+finalprice2);
+		int tfinalprice2 = Integer.parseInt(finalprice2);
+		if(tfinalprice1>=tfinalprice2){
+			System.out.println("Assertion 5 : Passed ,first price INTs are the lowest comparing to other prices ");
+		}else{
+			System.out.println("Assertion 5 : Failed");
+		}
+		}
 		//*******************************************************************************************
 //		for(int i=1;i<(flightlist.size());i++){
 //			String price = "//div[@data-testid='FlightSearchResult__Itinerary"+i+"__PriceLabel']";         
