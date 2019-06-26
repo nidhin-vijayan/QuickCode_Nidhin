@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Tajawal_QA CODE CHALLENGE" verbose="1" parallel ="classes" thread-count="2">
+
+	  <listeners>
+		<listener class-name="com.saal.ExtentReportListener.ExtentReporterNG" />
+	</listeners>
+
+
+	<test name="Tajawal_QA challenge_Validate Scenario 1">
+		<classes>
+			<class name="com.saal.qa.testcases.A_Scenario1PageTest"></class>
+		</classes>
+	</test>
+		<test name="Tajawal_QA challenge_Validate Scenario 2">
+		<classes>
+			<class name="com.saal.qa.testcases.B_Scenario2PageTest"></class>
+		</classes>
+	</test>
+</suite>
