@@ -119,6 +119,7 @@ public class B_Scenario2Page extends TestBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", scrollcontact);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(scrollwait)));
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		System.out.println(flightlist.size());
 		//*******************************************************************************************
 		String price1 = "//div[@data-testid='FlightSearchResult__Itinerary1__PriceLabel']";         
