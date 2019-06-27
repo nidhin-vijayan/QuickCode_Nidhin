@@ -156,7 +156,7 @@ public class B_Scenario2Page extends TestBase {
 
 	    try{
 	    	String currentDir = System.getProperty("user.dir");
-	    	File resfile = new File(currentDir + "/screenshots/mycsvfile.csv");
+	    	File resfile = new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".csv");
 	    	String[] data = {Pricelist2.getText()};
 	    	CSVWriter writer = new CSVWriter(new FileWriter(resfile,true));
 	    	

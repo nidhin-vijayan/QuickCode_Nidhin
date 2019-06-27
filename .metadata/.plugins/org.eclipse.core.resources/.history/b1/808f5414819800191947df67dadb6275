@@ -1,10 +1,17 @@
 package com.saal.qa.pages;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -20,8 +27,11 @@ import com.saal.qa.base.TestBase;
 import com.saal.qa.util.TestUtil;
 
 public class B_Scenario2Page extends TestBase {
+	
+	File resfile = new File("D://a.csv");  
+	
 
-
+	
 	@FindBy(xpath = "//*[text()='One-way']")
 	WebElement oneway;
 
@@ -68,7 +78,7 @@ public class B_Scenario2Page extends TestBase {
 	@FindBy(xpath = "//*[contains(@class,'sc-cBrjTV hYinSI sc-ifAKCX fagsrJ btn btn-empty')]")
 	WebElement notifybutton;
 	
-	@FindBy(xpath = "//div[contains(@class,'search-result-leg-card')]")
+	@FindBy(xpath = "//*[@class='sc-iybRtq etldkw sc-jtRfpW erOyyR row']")
 	List<WebElement> flightlist;
 	
 	@FindBy(xpath = "//div[@data-testid='FlightSearchResult__Itinerary1__PriceLabel")
@@ -85,48 +95,49 @@ public class B_Scenario2Page extends TestBase {
 	}
 
 	public void bookingticket(String from, String to, String date, String passenger) {
-		driver.get(prop.getProperty("urla"));
+		driver.get("https://www.tajawal.ae/en/v3/flights/DXB-TRV/2019-07-01/Economy/2Adult?nearby=DXB-TRV");
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver,15);
-		oneway.click();
-		originbefore.click();
-		origin.sendKeys(from);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		origin.sendKeys(Keys.ENTER);
-		destination.sendKeys(to);
-		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dest_list)));
-		destination.sendKeys(Keys.ENTER);
-		fromdate.click();
-		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(months)));
-		String script = "//span[@data-testid='FlightSearchCalendar__" + date + "']";
-		// System.out.println("my xpath is :"+script1);
-		driver.findElement(By.xpath(script)).click();
-		passenger_drpdwn.click();
-		System.out.println("The Passenger list is:" + passenger);
-		System.out.println("The adultscountlabel list is:" + adultscountlabel.getText());
-		String adultsvalue = adultscountlabel.getText(); // TAKE TO TOP
-		if (passenger.equalsIgnoreCase(adultsvalue)) {
+//		oneway.click();
+//		originbefore.click();
+//		origin.sendKeys(from);
+//		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//		origin.sendKeys(Keys.ENTER);
+//		destination.sendKeys(to);
+//		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(dest_list)));
+//		destination.sendKeys(Keys.ENTER);
+//		fromdate.click();
+//		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(months)));
+//		String script = "//span[@data-testid='FlightSearchCalendar__" + date + "']";
+//		// System.out.println("my xpath is :"+script1);
+//		driver.findElement(By.xpath(script)).click();
+//		passenger_drpdwn.click();
+//		System.out.println("The Passenger list is:" + passenger);
+//		System.out.println("The adultscountlabel list is:" + adultscountlabel.getText());
+//		String adultsvalue = adultscountlabel.getText(); // TAKE TO TOP
+//		if (passenger.equalsIgnoreCase(adultsvalue)) {
 //			System.out.println("FINALLY FOUND");
-			passengersettle.click();
-		} else {
-			adultsfield.click();
-			adultsplus.click();
+//			passengersettle.click();
+//		} else {
+//			adultsfield.click();
+//			adultsplus.click();
 //			System.out.println("FINALLY FOUND 1");
-			passengersettle.click();
-		}
-		searchflight.click();
+//			passengersettle.click();
+//		}
+//		searchflight.click();
 		driver.manage().timeouts().pageLoadTimeout(90, TimeUnit.SECONDS);
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 //		js.executeScript("arguments[0].click();", notifybutton);
 		js.executeScript("arguments[0].scrollIntoView(true);", scrollcontact);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(scrollwait)));
-		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		System.out.println(flightlist.size());
 		//*******************************************************************************************
+		int[] eval = new int[flightlist.size()]; //********
 		String price1 = "//div[@data-testid='FlightSearchResult__Itinerary1__PriceLabel']";         
 		WebElement Pricelist = driver.findElement(By.xpath(price1));
 		System.out.println("The price list is:"+Pricelist.getText());
@@ -153,22 +164,35 @@ public class B_Scenario2Page extends TestBase {
 		}else{
 			System.out.println("Assertion 5 : Failed");
 		}
-
+	    eval[i]= tfinalprice2; //*******
+	  String[] data = finalprice2;
 	    try{
-	    	String currentDir = System.getProperty("user.dir");
-	    	File resfile = new File(currentDir + "/screenshots/mycsvfile.csv");
-	    	String[] data = {Pricelist2.getText()};
 	    	CSVWriter writer = new CSVWriter(new FileWriter(resfile,true));
 	    	
-               writer.writeNext(data);
-//                writer.writeNext(data.toArray(new String[data.size()]));
+                writer.writeNext(data);
               
                 writer.close();
 	    } catch(Exception e){
             e.printStackTrace();
     }
-		}
+         }
 		
+		//*******************************************************************************************
+//		for(int i=1;i<(flightlist.size());i++){
+//			String price = "//div[@data-testid='FlightSearchResult__Itinerary"+i+"__PriceLabel']";         
+//			List<WebElement> Pricelist = driver.findElements(By.xpath(price));
+//			System.out.println("The price list is:"+Pricelist.get(0).getText());
+//			String ex= Pricelist.get(0).getText();
+//			System.out.println("The value of a:"+ex);
+//			String part1 = ex.replaceAll("\\\\n"," ");
+//			System.out.println("The value of a:"+part1);
+////			int resulta=Integer.parseInt(a);
+////			System.out.println("The value of resulta:"+resulta);
+//			String b= Pricelist.get(i+1).getText();
+//			System.out.println("The value of b:"+b);
+////			if((Pricelist.get(0).getText())>(Pricelist.get(i).getText()))
+//		}
+		//*******************************************************************************************
 	}
 
 }

@@ -68,7 +68,7 @@ public class B_Scenario2Page extends TestBase {
 	@FindBy(xpath = "//*[contains(@class,'sc-cBrjTV hYinSI sc-ifAKCX fagsrJ btn btn-empty')]")
 	WebElement notifybutton;
 	
-	@FindBy(xpath = "//div[contains(@class,'search-result-leg-card')]")
+	@FindBy(xpath = "//*[@class='sc-fHxwqH dvaYEJ sc-bYSBpT dTBkYG row']")
 	List<WebElement> flightlist;
 	
 	@FindBy(xpath = "//div[@data-testid='FlightSearchResult__Itinerary1__PriceLabel")
@@ -124,7 +124,7 @@ public class B_Scenario2Page extends TestBase {
 		js.executeScript("arguments[0].scrollIntoView(true);", scrollcontact);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(scrollwait)));
-		driver.manage().timeouts().implicitlyWait(25, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		System.out.println(flightlist.size());
 		//*******************************************************************************************
 		String price1 = "//div[@data-testid='FlightSearchResult__Itinerary1__PriceLabel']";         
@@ -156,7 +156,7 @@ public class B_Scenario2Page extends TestBase {
 
 	    try{
 	    	String currentDir = System.getProperty("user.dir");
-	    	File resfile = new File(currentDir + "/screenshots/mycsvfile.csv");
+	    	File resfile = new File(currentDir + "/screenshots/" + System.currentTimeMillis() + ".csv");
 	    	String[] data = {Pricelist2.getText()};
 	    	CSVWriter writer = new CSVWriter(new FileWriter(resfile,true));
 	    	

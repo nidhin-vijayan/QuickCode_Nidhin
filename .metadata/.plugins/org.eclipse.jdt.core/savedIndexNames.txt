@@ -12,7 +12,6 @@ INDEX VERSION 1.127+D:\NidhinLearning\.metadata\.plugins\org.eclipse.jdt.core
 3585489317.index
 3088231770.index
 1277869136.index
-1256054385.index
 195376921.index
 3421819425.index
 2411379853.index
